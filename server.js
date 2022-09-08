@@ -129,28 +129,24 @@ app.post('/upload',upload.single('excel'),(req,res)=>{
 });
 
 
-
-
 /**
- *  @swagger
- *  /upload:
- *   post:
- *     description: 'Returns token for authorized User'
- *     operationId: Login
- *     consumes:
- *       - "application/json"
- *     requestBody:
- *        content:
- *         multipart/form-data:
- *          schema:
- *           type: object
- *           properties:
- *              fileName:
- *               type: array
- *               items:
- *                type: string
- *                format: binary
- *              
+ * @swagger
+ * /upload:
+ *  post:
+ *    tags:
+ *      - upload xlsx
+ *    summary: Upload files and save to multer
+ *    parameters:
+ *      - in: formData
+ *        name: file
+ *        description: File
+ *        required: true
+ *        type: file
+ *    responses:
+ *      '200':
+ *        description: Success
+ *      '203':
+ *        description: Failure
  */
 
 app.listen(port,()=>console.log('server run at '+port));
